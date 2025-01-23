@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Application Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic styles for hiding and showing sections */
+        .hidden {
+            display: none;
+        }
+        .container {
+            margin: 20px auto;
+            max-width: 500px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .button_container {
+            text-align: center;
+        }
+        .button_container button {
+            width: auto;
+            padding: 10px 20px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Login Section -->
+<div id="login-section" class="container">
+    <h1>Login</h1>
+    <form id="login-form">
+        <label for="login_email">Email</label>
+        <input type="email" id="login_email" name="login_email" placeholder="Enter Email" required />
+
+        <label for="login_password">Password</label>
+        <input type="password" id="login_password" name="login_password" placeholder="Enter Password" required />
+
+        <div class="button_container">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</div>
+
+<!-- Job Application Section -->
+<div id="application-section" class="container hidden">
+    <h1>
+        Job Application
+        <span class="title_small">(Web)</span>
+    </h1>
+    <form id="application-form">
+        <label for="first_name">First Name</label>
+        <input id="first_name" name="first_name" placeholder="Enter First Name.." required />
+
+        <label for="last_name">Last Name</label>
+        <input id="last_name" name="last_name" placeholder="Enter Last Name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter Email" required />
+
+        <label for="job_role">Job Role</label>
+        <select id="job_role" name="job_role" required>
+            <option value="">Select Job Role</option>
+            <option value="React">React</option>
+            <option value="Node">Node.js</option>
+            <option value="full_stack">Full Stack Developer</option>
+            <option value="Frontend">Frontend Developer</option>
+        </select>
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="4" cols="50" placeholder="Enter Address" required></textarea>
+
+        <label for="city">City</label>
+        <input id="city" name="city" placeholder="Enter City Name.." required />
+
+        <label for="pincode">Pincode</label>
+        <input type="number" id="pincode" name="pincode" placeholder="Enter Pincode" required />
+
+        <label for="date">D.O.B</label>
+        <input value="1999-02-03" type="date" id="date" name="date" />
+
+        <label for="upload">Upload your CV</label>
+        <input type="file" id="upload" name="upload" required />
+
+        <div class="button_container">
+            <button type="submit">Apply Now</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Select the login and application sections
+    const loginSection = document.getElementById('login-section');
+    const applicationSection = document.getElementById('application-section');
+
+    // Handle login form submission
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from reloading the page
+
+        // Perform any validation if needed here (e.g., check hardcoded credentials)
+
+        // If successful, hide login and show application section
+        loginSection.classList.add('hidden');
+        applicationSection.classList.remove('hidden');
+    });
+
+    // Handle application form submission
+    document.getElementById('application-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from reloading the page
+        alert('Application submitted successfully!');
+    });
+</script>
+
+</body>
+</html>
